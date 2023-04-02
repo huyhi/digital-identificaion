@@ -44,8 +44,8 @@ function Sketchpad(config) {
   this._height = config.height || this.element.attr('data-height') || 0;
 
   // Pen attributes
-  this.color = config.color || this.element.attr('data-color') || '#0a0a0a';
-  this.penSize = config.penSize || this.element.attr('data-penSize') || 15;
+  this.color = config.color || this.element.attr('data-color') || '#0c0c0c';
+  this.penSize = config.penSize || this.element.attr('data-penSize') || 13;
 
   // ReadOnly sketchpads may not be modified
   this.readOnly = config.readOnly ||
@@ -101,11 +101,8 @@ Sketchpad.prototype._stroke = function(start, end, color, size, compositeOperati
   this.context.lineCap = 'round';
   this.context.strokeStyle = color;
 
-  this.context.shadowOffsetX = 5;
-  this.context.shadowOffsetY = 5;
-
-  this.context.shadowBlur = 7;
-  this.context.shadowColor = '#0a0a0a';
+  this.context.shadowBlur = 12;
+  this.context.shadowColor = '#0c0c0c';
 
   this.context.lineWidth = size;
   this.context.globalCompositeOperation = compositeOperation;

@@ -24,17 +24,13 @@ def grayscale_and_resize(img: Image):
     return img
 
 
-def clip_and_fill(img: Image):
-    pass
-
-
 def img_2_byte_array(img: Image) -> list[int]:
     res = []
     img_size_x, img_size_y = img.size
     pixel_access = img.load()
     for y in range(img_size_y):
         for x in range(img_size_x):
-            res.append(pixel_access[x, y][1])
+            res.append(pixel_access[x, y][1] / 255 * 0.99 + 0.01)
     return res
 
 

@@ -37,7 +37,7 @@ def read_image():
     with open('./train-images-idx3-ubyte', 'rb') as image_f:
         image_f.read(16)
         for i in range(60000):
-            result.append([int(b) for b in image_f.read(IMG_PIXEL_NUM)])
+            result.append([int(b) / 255 * 0.99 + 0.01 for b in image_f.read(IMG_PIXEL_NUM)])
 
     return result
 
@@ -61,3 +61,7 @@ def train_svm_model():
 
     with open('./svm.model', 'wb') as model_f:
         pickle.dump(clf, model_f)
+
+
+if __name__ == '__main__':
+    train_svm_model()
