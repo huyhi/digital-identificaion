@@ -18,6 +18,9 @@
     </header>
 
     <div>
+      <p> MINST handwritten digit classification DEMO </p>
+      <p> author: @annhuny </p>
+      <P> Source code: <a href="https://github.com/huyhi/digital-identificaion">View on Github</a> </P>
       <div style="text-align: center">
         <canvas class="sketchpad" id="sketchpad"></canvas>
       </div>
@@ -66,16 +69,15 @@
     imgDataURL = document.getElementById('sketchpad').toDataURL()
 
     $.ajax({
-      url: "/gateway/system/plug/resume/upload",
-      type: "post",
-      data: formData,
-      contentType: false,
-      processData: false,
+      url: 'http://localhost/predict',
+      type: 'post',
+      data: {'img_data_url': imgDataURL},
+      dataType:'json', 
       success: function (res) {
-        $('#result').value = res
+        $('#result').text(`recognize result: ${res.data}`)
       },
-      error: function (data) {
-        $('#result').value = res
+      error: function (res) {
+        $('#result').text(`server error: ${res.msg}`)
       }
     });
   }

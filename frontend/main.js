@@ -45,7 +45,7 @@ function Sketchpad(config) {
 
   // Pen attributes
   this.color = config.color || this.element.attr('data-color') || '#000000';
-  this.penSize = config.penSize || this.element.attr('data-penSize') || 20;
+  this.penSize = config.penSize || this.element.attr('data-penSize') || 30;
 
   // ReadOnly sketchpads may not be modified
   this.readOnly = config.readOnly ||

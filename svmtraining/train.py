@@ -61,7 +61,3 @@ def train_svm_model():
 
     with open('./svm.model', 'wb') as model_f:
         pickle.dump(clf, model_f)
-
-
-if __name__ == '__main__':
-    train_svm_model()
