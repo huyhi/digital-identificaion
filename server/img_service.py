@@ -1,8 +1,11 @@
 import io
+import os.path
 import pickle
 
 from PIL import Image
 from urllib import request
+
+from conf import ROOT_DIR
 
 PIXEL_WIDTH = 28
 PIXEL_HEIGHT = 28
@@ -11,7 +14,7 @@ svm_model = None
 
 def load_model():
     global svm_model
-    with open('../svmtraining/svm.model', 'rb') as model_f:
+    with open(os.path.join(ROOT_DIR, 'svmtraining', 'svm.model'), 'rb') as model_f:
         svm_model = pickle.load(model_f)
 
 
