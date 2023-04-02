@@ -24,6 +24,10 @@ def grayscale_and_resize(img: Image):
     return img
 
 
+def clip_and_fill(img: Image):
+    pass
+
+
 def img_2_byte_array(img: Image) -> list[int]:
     res = []
     img_size_x, img_size_y = img.size
